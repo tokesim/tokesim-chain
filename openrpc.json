@@ -2,7 +2,7 @@
   "openrpc": "1.0.0",
   "info": {
     "title": "Tokesim Client",
-    "version": "0.1.0"
+    "version": "0.0.0"
   },
   "methods": [
     {
@@ -72,6 +72,7 @@
         "description": "Id assigned to simulation",
         "summary": "Id used to reference simulation",
         "schema": {
+          "title": "SimulationId",
           "$ref": "#/components/schemas/SimulationId"
         }
       },
@@ -130,7 +131,6 @@
         ]
       },
       "SimulationId": {
-        "title": "simulationId",
         "type": "string"
       },
       "SimulationParams": {

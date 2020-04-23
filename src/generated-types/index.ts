@@ -40,6 +40,7 @@ export type EndBlockTransactionResult = boolean;
  * Generated! Represents an alias to any of the provided schemas
  *
  */
+export type AnyOfSimulationParamsSimulationIdSimulationIdSimulationIdSimulationResultStoppedSimulationStartedBlockTransactionResultEndBlockTransactionResult = SimulationParams | SimulationId | SimulationResult | StoppedSimulation | StartedBlockTransactionResult | EndBlockTransactionResult;
 export type StartSimulation = (simulationParams: SimulationParams) => Promise<SimulationResult>;
 export type StopSimulation = (simulationId?: SimulationId) => Promise<StoppedSimulation>;
 export type StartBlockTransactions = (simulationId?: SimulationId) => Promise<StartedBlockTransactionResult>;
