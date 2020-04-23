@@ -24,5 +24,6 @@ const parseCommands = async (prog: Command): Promise<ParsedCommands> => {
 
 export const startSimulatorFromCLI = async (program: any): Promise<void> => {
   const commands = await parseCommands(program);
+  logger.info(`Starting simulator on port ${commands.port} with ${commands.chain}`)
   return startSimulator(commands.port, commands.chain);
 };

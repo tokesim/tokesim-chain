@@ -1,4 +1,4 @@
-#!/usr/bin / env node
+#!/usr/bin/env node
 import program from "commander";
 const version = require("../../../package.json").version; // tslint:disable-line
 import { makeLogger } from "../lib/logging";
@@ -19,7 +19,7 @@ program
   .action(async () => {
     try {
       await startSimulatorFromCLI(program);
-      logger.info("simulator service launched!");
+      logger.info(`simulator service launched!`);
     } catch (e) {
       logger.error(e);
       logger.error("Could not start simulator");
