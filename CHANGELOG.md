@@ -1,3 +1,13 @@
+## [1.0.1](https://github.com/tokesim/tokesim-chain/compare/1.0.0...1.0.1) (2020-04-23)
+
+
+### Bug Fixes
+
+* add missing bin to package.json ([2629c46](https://github.com/tokesim/tokesim-chain/commit/2629c4625ff8472d3a7b5dd8f00f4d994253a5ca))
+* cli interpeter for bin ([60a35fb](https://github.com/tokesim/tokesim-chain/commit/60a35fbd368c5e0e459358d4e70c34cf69b5f6ad))
+* cli logging to include additional information ([b805d0c](https://github.com/tokesim/tokesim-chain/commit/b805d0c4fdc45990254681424e0a59a9fd425632))
+* dev dependencies correction ([9d4e8ca](https://github.com/tokesim/tokesim-chain/commit/9d4e8ca1ec534e9d8172703506d6a8825c44f909))
+
 # 1.0.0 (2020-04-23)
 
 
