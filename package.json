@@ -1,25 +1,42 @@
 {
-  "name": "@etclabscore/pristine-typescript",
+  "name": "@tokesim/tokesim-chain",
   "version": "0.0.0-development",
   "description": "",
-  "main": "build/index.js",
+  "main": "build/cli/index.js",
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "build": "tsc && typedoc --out docs &&  touch docs/.nojekyll ",
+    "build": "npm run build:typings && npm run build:code",
+    "build:code": "tsc",
+    "start": "node build/src/cli/index.js",
+    "build:typings": "open-rpc-typings --output-ts src/generated-types",
     "lint": "tslint --fix -p .",
     "test": "npm run lint && jest --coverage"
   },
   "author": "",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@types/jest": "^24.0.13",
-    "@types/node": "^12.12.17",
     "jest": "^24.8.0",
     "ts-jest": "^24.1.0",
     "tslint": "^5.17.0",
     "typedoc": "^0.15.5",
-    "typescript": "^3.7.3"
+    "typescript": "^3.7.3",
+    "@open-rpc/client-js": "^1.2.4",
+    "@open-rpc/generator-client": "^1.14.6",
+    "@open-rpc/server-js": "^1.5.2",
+    "@open-rpc/typings": "^1.8.0",
+    "@types/cors": "^2.8.6",
+    "@types/fs-extra": "^8.0.1",
+    "@types/jest": "^24.0.13",
+    "@types/json-schema": "^7.0.4",
+    "@types/node": "^12.12.17",
+    "@types/ws": "^7.2.2"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "fs-extra": "^8.1.0",
+    "ganache-core": "^2.9.2",
+    "winston": "^3.2.1"
   }
 }

@@ -1,0 +1,173 @@
+{
+  "openrpc": "1.0.0",
+  "info": {
+    "title": "Tokesim Client",
+    "version": "0.1.0"
+  },
+  "methods": [
+    {
+      "name": "startSimulation",
+      "params": [
+        {
+          "$ref": "#/components/contentDescriptors/SimulationParams"
+        }
+      ],
+      "result": {
+        "name": "startSimulationResult",
+        "schema": {
+          "$ref": "#/components/schemas/StartSimulationResult"
+        }
+      }
+    },
+    {
+      "name": "stopSimulation",
+      "params": [
+        {
+          "$ref": "#/components/contentDescriptors/SimulationId"
+        }
+      ],
+      "result": {
+        "name": "StoppedSimulationResult",
+        "schema": {
+          "title": "StoppedSimulation",
+          "type": "boolean"
+        }
+      }
+    },
+    {
+      "name": "startBlockTransactions",
+      "params": [
+        {
+          "$ref": "#/components/contentDescriptors/SimulationId"
+        }
+      ],
+      "result": {
+        "name": "StartBlockTransactionResult",
+        "schema": {
+          "title": "StartedBlockTransactionResult",
+          "type": "boolean"
+        }
+      }
+    },
+    {
+      "name": "endBlockTransactions",
+      "params": [
+        {
+          "$ref": "#/components/contentDescriptors/SimulationId"
+        }
+      ],
+      "result": {
+        "name": "EndBlockTransactionResult",
+        "schema": {
+          "title": "EndBlockTransactionResult",
+          "type": "boolean"
+        }
+      }
+    }
+  ],
+  "components": {
+    "contentDescriptors": {
+      "SimulationId": {
+        "name": "simulationId",
+        "description": "Id assigned to simulation",
+        "summary": "Id used to reference simulation",
+        "schema": {
+          "$ref": "#/components/schemas/SimulationId"
+        }
+      },
+      "SimulationParams": {
+        "name": "simulationParams",
+        "description": "Parameters used to start a simulation",
+        "required": true,
+        "schema": {
+          "$ref": "#/components/schemas/SimulationParams"
+        }
+      }
+    },
+    "schemas": {
+      "Accounts": {
+        "type": "object",
+        "title": "accounts",
+        "properties": {
+          "master": {
+            "title": "Master",
+            "$ref": "#/components/schemas/AccountEntry"
+          },
+          "accounts": {
+            "title": "AccountList",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AccountEntry"
+            }
+          }
+        },
+        "required": [
+          "master",
+          "accounts"
+        ]
+      },
+      "AccountEntry": {
+        "title": "AccountEntry",
+        "type": "object",
+        "properties": {
+          "private_key": {
+            "title": "PrivateKey",
+            "type": "string"
+          },
+          "pub_addr": {
+            "title": "PubAddr",
+            "type": "string"
+          },
+          "balance": {
+            "title": "Balance",
+            "type": "string"
+          }
+        },
+        "required": [
+          "private_key",
+          "pub_addr",
+          "balance"
+        ]
+      },
+      "SimulationId": {
+        "title": "simulationId",
+        "type": "string"
+      },
+      "SimulationParams": {
+        "title": "SimulationParams",
+        "type": "object",
+        "properties": {
+          "chain": {
+            "title": "Chain",
+            "type": "string"
+          },
+          "accounts": {
+            "title": "Accounts",
+            "$ref": "#/components/schemas/Accounts"
+          }
+        },
+        "required": [
+          "chain",
+          "accounts"
+        ]
+      },
+      "StartSimulationResult": {
+        "title": "SimulationResult",
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "SimulationId",
+            "$ref": "#/components/schemas/SimulationId"
+          },
+          "port": {
+            "title": "Port",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      }
+    }
+  }
+}
