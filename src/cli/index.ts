@@ -19,7 +19,7 @@ program
   .action(async () => {
     try {
       await startSimulatorFromCLI(program);
-      logger.info("simulator service launched!");
+      logger.info(`simulator service launched!`);
     } catch (e) {
       logger.error(e);
       logger.error("Could not start simulator");
